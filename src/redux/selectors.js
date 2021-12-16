@@ -6,11 +6,11 @@ export const getLoading = (state) => state.contacts.loading;
 
 export const onFilteredContacts = createSelector(
   [getAllItems, getFilter],
-  (contacts, filter) => {
+  (items, filter) => {
     const normalizedFilter = filter.toLowerCase().trim();
 
-    return contacts.filter((contact) =>
-      contact.toLowerCase().includes(normalizedFilter)
+    return items.filter(({ name }) =>
+      name.toLowerCase().includes(normalizedFilter)
     );
   }
 );
